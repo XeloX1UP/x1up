@@ -14,13 +14,24 @@ a {
 * {
   box-sizing: border-box;
 }
+body {
+  padding: 50px 100px 20px;
+  min-height: 100vh;
+}
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: #1a4d2e;
+    background: #000000;
+  }
+  a {
+    color: #ff9f29;
+  }
+  a:hover {
+    color: #faf3e3;
+    text-decoration: underline;
   }
 }
