@@ -1,0 +1,13 @@
+.btn {
+  padding: 2px 40px;
+  border: 2px solid #faf3e3;
+  border-radius: 20px;
+  transition: 0.3s;
+  background: #eaeaea;
+}
+.btn:hover {
+  background: #b2b2b2;
+}
+.btn:active {
+  transform: scale(0.9);
+}

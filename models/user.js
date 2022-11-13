@@ -6,7 +6,7 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Username is required"],
       trim: true,
-      maxlength: [15, "Max length (15)"],
+      maxlength: [80, "Max length (80)"],
     },
     password: {
       type: String,
@@ -18,16 +18,16 @@ const userSchema = new Schema(
       type: String,
       required: [true, "First name is required"],
       trim: true,
-      maxlength: [20, "Max length (20)"],
+      maxlength: [40, "Max length (40)"],
     },
     lastName: {
       type: String,
       required: [true, "Last name is required"],
       trim: true,
-      maxlength: [20, "Max length (20)"],
+      maxlength: [40, "Max length (40)"],
     },
     role: {
-      type: String,
+      type: Number,
       required: true,
     },
     email: {

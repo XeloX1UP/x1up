@@ -4,7 +4,7 @@ import styles from "./newuser.module.css";
 
 export default function ButtonSubmit() {
   const [msgs, setMsgs] = useState([]);
-  const handler = (e) => {
+  const handler = async (e) => {
     e.preventDefault();
     const data = {
       firstName: document.getElementById("firstName").value.trim(),
@@ -19,15 +19,28 @@ export default function ButtonSubmit() {
     if (!frmVal.valid) {
       setMsgs(frmVal.messages);
     } else {
+      const response = await fetch("/api/newuser", {
+        method: "post",
+        body: JSON.stringify(data),
+      }).then((res) => res.json());
       setMsgs([]);
+      if (response.isCreated) {
+        alert(
+          `Usuario creado exitosamente. Revisa tu bandeja de entrada (${data.email})`
+        );
+        location.href = "/users/login";
+      } else {
+        alert(response.errors);
+        location.href = "/users/login";
+      }
     }
   };
   const formValidate = (data) => {
     const rgx = {
-      firstName: /^[a-zA-Z\s]{3,40}$/,
-      lastName: /^[a-zA-Z\s]{3,40}$/,
+      firstName: /^[a-zA-Z\sÀ-ÿ\u00f1\u00d1]{3,40}$/,
+      lastName: /^[a-zA-Z\sÀ-ÿ\u00f1\u00d1]{3,40}$/,
       email: /^[a-zA-Z0-9.-_]{1,30}\@[a-zA-Z0-9.-_]{1,30}\.(com|cl|org)$/,
-      password: /^[a-zA-Z\s./&%$-_,]{3,10}$/,
+      password: /^[a-zA-Z./&%$-_,]{3,10}$/,
     };
     let msg = [];
     if (!rgx.firstName.test(data.firstName))
@@ -42,7 +55,8 @@ export default function ButtonSubmit() {
       msg.push({ message: "Correo formato inválido" });
     if (!rgx.password.test(data.password))
       msg.push({
-        message: "Contraseña inválida (Debe contener entre 3 y 10 letras)",
+        message:
+          "Contraseña inválida (Debe contener entre 3 y 10 caracteres incluidos '. / & % $ - _ , ')",
       });
     if (data.email != data.reEmail)
       msg.push({ message: "Los correos deben coincidir" });

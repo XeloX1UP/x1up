@@ -1,14 +1,25 @@
 .header {
   border-radius: 4px;
-  padding: 4px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 15px;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-evenly;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #00abb3;
 }
 
 .navigation {
   display: flex;
   list-style: none;
   gap: 32px;
+}
+.cntLogo {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-top: 10px;
 }

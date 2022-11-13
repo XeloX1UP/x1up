@@ -1,0 +1,10 @@
+.texts {
+  text-align: center;
+  padding: 7px;
+  background: #00adb5;
+  color: #eeeeee;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

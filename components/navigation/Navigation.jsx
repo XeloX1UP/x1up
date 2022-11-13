@@ -5,22 +5,25 @@ import { IsLogged } from "./IsLogged";
 
 const links = [
   {
-    label: "Home",
+    label: "Inicio",
     route: "/",
   },
   {
-    label: "About",
+    label: "Proyectos",
     route: "/about",
   },
   {
-    label: "Posts",
+    label: "Publicaciones",
     route: "/posts",
   },
 ];
 export function Navigation() {
   return (
     <header className={styles.header}>
-      <Logo1up />
+      <div className={styles.cntLogo}>
+        <Logo1up />
+      </div>
+
       <nav>
         <ul className={styles.navigation}>
           {links.map(({ label, route }) => (

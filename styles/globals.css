@@ -15,8 +15,17 @@ a {
   box-sizing: border-box;
 }
 body {
-  padding: 50px 100px 20px;
+  padding: 0 0 150px;
   min-height: 100vh;
+  position: relative;
+}
+
+.section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,14 +33,14 @@ body {
     color-scheme: dark;
   }
   body {
-    color: #1a4d2e;
-    background: #000000;
+    color: #00adb5;
+    background: #222831;
   }
   a {
-    color: #ff9f29;
+    color: #eeeeee;
   }
   a:hover {
-    color: #faf3e3;
+    color: #393e46;
     text-decoration: underline;
   }
 }

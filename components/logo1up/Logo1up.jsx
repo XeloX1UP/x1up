@@ -1,4 +1,5 @@
-import styles from "./Logo1up.module.css";
+import logo from "../../images/logoNav.png";
+import Image from "next/image";
 export function Logo1up() {
-  return <h1 className={styles.logo}>logo</h1>;
+  return <Image src={logo} fill priority placeholder="blur" alt="Logo X1UP" />;
 }

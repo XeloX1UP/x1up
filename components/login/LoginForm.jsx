@@ -10,6 +10,7 @@ export const LoginForm = () => {
       <LoginInput placeholder="Usuario" id="email" type="email" />
       <LoginInput placeholder="Contraseña" id="password" type="password" />
       <Link href="/users/newuser">¿No tienes cuenta? Registrate aqui.</Link>
+      <Link href="/users/passforggot">¿Olvidó su contraseña?</Link>
       <LoginButton />
     </form>
   );
