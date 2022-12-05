@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import styles from "./newuser.module.css";
 
 export default function ButtonSubmit() {
   const [msgs, setMsgs] = useState([]);
@@ -69,11 +68,11 @@ export default function ButtonSubmit() {
   return (
     <>
       {msgs.map((msg, i) => (
-        <p key={i + 1} className={styles.error}>
+        <p key={i + 1} className="text-danger mt-2 text-center">
           {msg.message}
         </p>
       ))}
-      <button type="submit" onClick={handler} className={styles.button}>
+      <button type="submit" onClick={handler} className="btn btn-primary my-3">
         Registrarse
       </button>
     </>

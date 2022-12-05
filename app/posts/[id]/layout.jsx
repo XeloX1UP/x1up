@@ -1,11 +1,9 @@
 import Link from "next/link";
 
 const fetchSinglePost = (id) => {
-  return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-    next: {
-      revalidate: 60,
-    },
-  }).then((res) => res.json());
+  return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then((res) =>
+    res.json()
+  );
 };
 
 export default async function Post({ children, params }) {

@@ -1,20 +1,20 @@
-import lgFacebook from "../../images/facebook-logo.png";
-import lgLinkedIn from "../../images/linkedin-logo.png";
-import lgGitHub from "../../images/github-logo.png";
+import lgFacebook from '../../images/facebook-logo.png'
+import lgLinkedIn from '../../images/linkedin-logo.png'
+import lgGitHub from '../../images/github-logo.png'
 
-import lgReact from "../../images/atom.png";
-import lgJS from "../../images/js.png";
-import lgNode from "../../images/nodejs.png";
-import lgPython from "../../images/python.png";
-import lgHtml5 from "../../images/html-5.png";
-import lgCss from "../../images/css.png";
-import lgDocker from "../../images/docker.png";
+import lgReact from '../../images/atom.png'
+import lgJS from '../../images/js.png'
+import lgNode from '../../images/nodejs.png'
+import lgPython from '../../images/python.png'
+import lgHtml5 from '../../images/html-5.png'
+import lgCss from '../../images/css.png'
+import lgDocker from '../../images/docker.png'
 
-export default {
+const images = {
   contacts: {
     lgFacebook,
     lgLinkedIn,
-    lgGitHub,
+    lgGitHub
   },
   abouts: {
     lgReact,
@@ -24,6 +24,7 @@ export default {
     lgHtml5,
     lgCss,
     lgGitHub,
-    lgDocker,
-  },
-};
+    lgDocker
+  }
+}
+export default images

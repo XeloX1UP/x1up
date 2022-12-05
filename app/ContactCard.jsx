@@ -4,7 +4,9 @@ import { Contact } from "../components/Cards/Contact";
 
 export const ContactCard = () => {
   return (
-    <div className={contactCard}>
+    <div
+      className={`container-lg d-flex flex-column justify-content-center align-items-center my-5 flex-md-row`}
+    >
       <About />
       <Contact />
     </div>

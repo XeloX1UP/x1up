@@ -1,31 +1,8 @@
-.fs {
+/* .fs {
   border: none;
 }
-.title {
-  opacity: 0;
-  transition: 0.5s;
-  transform: translateY(20px);
-}
-.active {
-  opacity: 1;
-  transform: translateY(-20px);
-}
-.input {
-  padding: 7px 14px;
-  border-radius: 4px;
-  font-weight: bold;
-}
 
-.input:focus {
-  outline: none;
-}
-.input::placeholder {
-  transition: 0.5s;
-}
-.input:focus::placeholder {
-  transform: translateY(-20px);
-  opacity: 0;
-}
+
 .form {
   margin: 100px auto;
   display: flex;
@@ -48,4 +25,35 @@
 .error {
   color: red;
   font-size: 0.7rem;
+} */
+
+.title {
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(30px);
+}
+.active {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.input {
+  padding: 7px 14px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.input:focus {
+  outline: none;
+}
+.input::placeholder {
+  transition: 0.5s;
+}
+.input:focus::placeholder {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+.form {
+  max-width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
 }

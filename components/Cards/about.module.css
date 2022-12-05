@@ -5,9 +5,9 @@
   justify-content: center;
   text-align: center;
 }
-.bg {
+.bg1 {
   background: linear-gradient(60deg, #00abb3, #00595e);
-  padding: 0 5px;
+  padding: 10px 5px;
   border-radius: 15px;
   width: 350px;
   height: 300px;
@@ -17,11 +17,11 @@
   border: 3px solid #3c4048;
   color: #eeeeee;
 }
-.bg:hover {
+.bg1:hover {
   transform: scale(1.06);
   border: 3px solid #eaeaea;
 }
-.bg::before {
+.bg1::before {
   content: "Acerca de mí";
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@
   font-size: 50px;
   font-weight: bolder;
 }
-.bg:hover::before {
+.bg1:hover::before {
   opacity: 0;
   z-index: -1;
 }

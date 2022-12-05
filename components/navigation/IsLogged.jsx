@@ -1,44 +1,74 @@
-"use client";
-import Link from "next/link";
-import { useState, useEffect } from "react";
+'use client'
+import Link from 'next/link'
+import { useState, useEffect } from 'react'
 
-export function IsLogged() {
-  const [profile, setProfile] = useState({});
+export function IsLogged () {
+  const [profile, setProfile] = useState({})
   const fetchLogout = async () => {
-    const lgd = await fetch("/api/logout", {
-      credentials: "same-origin",
-      method: "get",
-    }).then((res) => res.json);
-    if (!lgd.logged) location.href = "/";
-  };
+    const lgd = await fetch('/api/logout', {
+      credentials: 'same-origin',
+      method: 'GET'
+    }).then((res) => res.json)
+    if (!lgd.logged) location.href = '/'
+  }
   useEffect(() => {
     const fetchLogged = async () => {
-      const response = await fetch("/api/profile", {
-        credentials: "same-origin",
-        method: "get",
-      }).then((res) => res.json());
-      setProfile(response);
-    };
-    fetchLogged();
-  }, []);
+      const response = await fetch('/api/profile', {
+        credentials: 'same-origin',
+        method: 'GET'
+      }).then((res) => res.json())
+      setProfile(response)
+    }
+    fetchLogged()
+  }, [])
   if (profile.logged) {
+    if (profile.role === 10) {
+      return (
+        <>
+          <li className='nav-item'>
+            <Link href='/administrator' className='nav-link active' prefetch={false}>
+              Administrar tienda
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link
+              prefetch={false}
+              href='#'
+              onClick={fetchLogout}
+              className='nav-link active'
+            >
+              Cerrar sesion
+            </Link>
+          </li>
+        </>
+      )
+    }
     return (
-      <li>
-        <Link prefetch={false} href={`#`} onClick={fetchLogout}>
+      <li className='nav-item'>
+        <Link
+          prefetch={false}
+          href='#'
+          onClick={fetchLogout}
+          className='nav-link active'
+        >
           Cerrar sesion
         </Link>
       </li>
-    );
+    )
   } else {
     return (
       <>
-        <li>
-          <Link href={`/users/login`}>Iniciar sesion</Link>
+        <li className='nav-item'>
+          <Link href='/users/login' className='nav-link active' prefetch={false}>
+            Iniciar sesion
+          </Link>
         </li>
-        <li>
-          <Link href={`/users/newuser`}>Registrarse</Link>
+        <li className='nav-item'>
+          <Link href='/users/newuser' className='nav-link active' prefetch={false}>
+            Registrarse
+          </Link>
         </li>
       </>
-    );
+    )
   }
 }

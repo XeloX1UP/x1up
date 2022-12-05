@@ -36,7 +36,7 @@ const cards = [
 
 export default function HomePage() {
   return (
-    <div className="section">
+    <div>
       {cards.map((card) => (
         <CardOffer
           image={card.image}

@@ -1,9 +1,7 @@
 const fetchSinglePostComment = (id) => {
-  return fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`, {
-    next: {
-      revalidate: 60,
-    },
-  }).then((res) => res.json());
+  return fetch(
+    `https://jsonplaceholder.typicode.com/posts/${id}/comments`
+  ).then((res) => res.json());
 };
 
 export default async function Post({ params }) {
