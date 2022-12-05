@@ -4,10 +4,7 @@ import { useEffect, useState } from 'react'
 export default function CategoryList() {
   const [list, setList] = useState([])
   const getCategoryList = async () => {
-    const response = await fetch('/api/categorylist', {
-      credentials: "same-origin",
-      method: "GET"
-    }).then((res) => res.json())
+    const response = await fetch('/api/categorylist').then((res) => res.json())
     setList(response)
   }
   useEffect(() => {

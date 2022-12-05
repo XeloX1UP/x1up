@@ -1,12 +1,18 @@
+'use client'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 
-const categories = () => {
-  return fetch(`${process.env.BASE_URL}/api/categorylist`).then((res) =>
-    res.json()
-  )
-}
-export const LinksCategorias = async () => {
-  const list = await categories()
+export const LinksCategorias = () => {
+  const [list, setList] = useState([])
+  const categories = async () => {
+    const result = await fetch('/api/categorylist').then((res) =>
+      res.json()
+    )
+    setList(result)
+  }
+  useEffect(() => {
+    categories()
+  }, [])
 
   return (
     <>

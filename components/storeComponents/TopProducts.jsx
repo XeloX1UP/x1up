@@ -1,17 +1,21 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import { shadow } from './topProducts.module.css'
 
-const fetchTopProducts = () => {
-  return fetch('http://localhost:3000/api/gettopproducts', {
-    method: 'GET'
-  }).then((res) => res.json())
-}
-export const TopProducts = async () => {
-  const data = await fetchTopProducts()
-  const { productList } = data
-  if (productList.length < 1) return null
-  const firstProduct = productList.shift()
+export const TopProducts = () => {
+  const [productList, setProductList] = useState([])
+  const [firstProduct, setFirstProduct] = useState([])
+  const fetchTopProducts = async () => {
+    const result = await fetch('/api/gettopproducts').then((res) => res.json())
+    setFirstProduct(result.shift())
+    setProductList(result)
+  }
+  useEffect(() => {
+    fetchTopProducts()
+  }, [])
+  if (firstProduct.length < 1) return null
   return (
     <div
       id='productsCarrousel'

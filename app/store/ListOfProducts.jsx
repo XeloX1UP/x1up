@@ -1,17 +1,21 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
-const listOfProducts = () => {
-  return fetch(`${process.env.BASE_URL}/api/productlist`, {
-    next: {
-      revalidate: 60
-    }
-  }).then((res) =>
-    res.json()
-  );
-};
-export const ListOfProducts = async () => {
-  const products = await listOfProducts()
+
+export const ListOfProducts = () => {
+  const [products, setProducts] = useState([])
+
+  const listOfProducts = async () => {
+    const result = await fetch(`/api/productlist`).then((res) =>
+      res.json()
+    );
+    setProducts(result)
+  };
+  useEffect(()=>{
+    listOfProducts()
+  },[])
 
   return (
     <div className="row my-5">

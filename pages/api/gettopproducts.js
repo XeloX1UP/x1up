@@ -12,5 +12,5 @@ const getTopProducts = () => {
 export default async function GetTopProducts (req, res) {
   const data = await getTopProducts()
 
-  res.json({ productList: data })
+  res.json(data)
 }

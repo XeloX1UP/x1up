@@ -1,18 +1,20 @@
+'use client'
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
-const productList = () => {
-      console.log('pruebafetcherrr');
-      return fetch(`${process.env.BASE_URL}/api/productlist`, {
-        next: {
-          revalidate: 60
-        }
-      }).then((res) =>
-        res.json()
-      )
+
+
+export const ListOfProducts = () => {
+  const [list, setList] = useState([])
+  const productList = async () => {
+    const result = await fetch(`/api/productlist`).then((res) =>
+      res.json()
+    )
+    setList(result)
   }
-
-export const ListOfProducts = async () => {
-  const list = await productList()
+  useEffect(()=> {
+    productList()
+  }, [])
   if (list.length < 1) return null
   return (
     <>

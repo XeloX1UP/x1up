@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         {/* Titulo */}
         <title>X1UP | 😎 Store</title>
         {/* FavIcon */}
-        <link rel="icon" type="image/x-icon" href="../images/css.png" />
+        {/* <link rel="icon" type="image/x-icon" href="../images/css.png" /> */}
       </head>
       <body className="text-light">
         <Navigation />
